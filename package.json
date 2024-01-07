@@ -1,0 +1,26 @@
+{
+  "name": "submitchallenges",
+  "version": "1.0.0",
+  "description": "Backend of a Node.js API for submitting challenges using SOLID and TDD concepts seeking to make it more scalable.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myguelangello/SubmitChallenges.git"
+  },
+  "keywords": [
+    "Node",
+    "API",
+    "SOLID",
+    "TDD",
+    "Scalable"
+  ],
+  "author": "Myguel Angello",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/myguelangello/SubmitChallenges/issues"
+  },
+  "homepage": "https://github.com/myguelangello/SubmitChallenges#readme"
+}
