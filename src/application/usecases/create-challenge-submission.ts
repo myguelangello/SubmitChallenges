@@ -1,4 +1,4 @@
-import { Submission } from "../../domain/Entities/submission"
+import { Submission } from "../../domain/entities/submission"
 
 type CreateChallengeSubmissionRequest = {
   studentId: string

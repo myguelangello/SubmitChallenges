@@ -11,7 +11,7 @@ export class Student extends Entity<StudentProps> {
     super(props, id)
   }
 
-  static create(props: StudentProps, id?: string) {
+  static create(props: StudentProps, id?: string) {// é static pois precisa ser chamado sem instanciar a classe
     const student = new Student(props, id)
 
     return student
