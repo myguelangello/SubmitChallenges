@@ -1,13 +1,21 @@
-import { InMemoryChallengesRepository } from "../../../test/repositories/in-memory-challenges-repository"
-import { InMemoryStudentsRepository } from "../../../test/repositories/in-memory-students-repository"
-import { Challenge } from "../../domain/entities/challenge"
-import { Student } from "../../domain/entities/student"
-import { CreateChallengeSubmission } from "./create-challenge-submission"
+import { InMemoryIChallengesRepository } from "../../../../test/repositories/in-memory-challenges-repository"
+import { InMemoryIStudentsRepository } from "../../../../test/repositories/in-memory-students-repository"
+import { Challenge } from "../../../domain/entities/challenge"
+import { Student } from "../../../domain/entities/student"
+import { CreateChallengeSubmission } from "../create-challenge-submission"
+
+let studentsRepository: InMemoryIStudentsRepository
+let challengesRepository: InMemoryIChallengesRepository
+let sut: CreateChallengeSubmission
 
 describe('Create challenge submission use case', () => {
+  beforeEach(() => {
+    studentsRepository = new InMemoryIStudentsRepository()
+    challengesRepository = new InMemoryIChallengesRepository()
+  })
+
   it('should be able to create a new challenge submission', async () => {
-    const studentsRepository = new InMemoryStudentsRepository()
-    const challengesRepository = new InMemoryChallengesRepository()
+
 
     const student = Student.create({
       name: 'Student 1',

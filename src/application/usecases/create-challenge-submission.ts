@@ -1,22 +1,22 @@
 import { Submission } from "../../domain/entities/submission"
-import { ChallengesRepository } from "../repositories/ChallengesRepository";
-import { StudentsRepository } from "../repositories/StudentsRepository";
+import { IChallengesRepository } from "../repositories/IChallengesRepository";
+import { IStudentsRepository } from "../repositories/IStudentsRepository";
 
 type CreateChallengeSubmissionRequest = {
   studentId: string
   challengeId: string
 }
 
+type CreateChallengeSubmissionResponse = { submission: Submission }
+
 export class CreateChallengeSubmission {
-  /**
-   * caso com eslint não funcionar pode criar com private fora do constructor, passar o parâmetro e dentro chamar com "this."
-   */
+  //caso com eslint não funcionar pode criar com private fora do constructor, passar o parâmetro e dentro chamar com "this."
   constructor(
-    private studentsRepository: StudentsRepository,
-    private challengesRepository: ChallengesRepository,
+    private studentsRepository: IStudentsRepository,
+    private challengesRepository: IChallengesRepository,
   ) { }
 
-  async execute({ studentId, challengeId }: CreateChallengeSubmissionRequest) { // esse método basicamente a única funcão de criação/submissão de um desafio
+  async execute({ studentId, challengeId }: CreateChallengeSubmissionRequest): Promise<CreateChallengeSubmissionResponse> { // esse método basicamente a única funcão de criação/submissão de um desafio
     const student = await this.studentsRepository.findById(studentId);
 
     if (!student) {
@@ -34,6 +34,6 @@ export class CreateChallengeSubmission {
       challengeId,
     })
 
-    return submission
+    return { submission }
   }
 }
